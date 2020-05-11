@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { Container } from './styles';
 import Header from '../../components/Header';
@@ -14,25 +14,35 @@ interface Pokemon {
 const Pokedex: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [count, setCount] = useState<number>(0);
-  const [next, setNext] = useState<string>('');
-  const [previous, setPrevious] = useState<string>('');
+  const [offset, setOffset] = useState<number>(0);
 
   useEffect(() => {
     async function loadPokemons(): Promise<void> {
       try {
-        const { data } = await api.get('/pokemon');
+        const { data } = await api.get('/pokemon', {
+          params: {
+            offset,
+            limit: 20,
+          },
+        });
 
         setPokemons([...data.results]);
         setCount(data.count);
-        setNext(data.next);
-        setPrevious(data.previous);
       } catch (err) {
         console.log(err);
       }
     }
 
     loadPokemons();
-  }, []);
+  }, [offset]);
+
+  const handleNextButtonClick = useCallback(() => {
+    setOffset(offset + 20);
+  }, [offset]);
+
+  const handlePreviousButtonClick = useCallback(() => {
+    if (offset >= 20) setOffset(offset - 20);
+  }, [offset]);
 
   return (
     <Container>
@@ -43,9 +53,10 @@ const Pokedex: React.FC = () => {
         style={{ marginTop: 20, width: '80%' }}
       >
         <thead className="thead-dark">
-          <tr>
+          <tr style={{ textAlign: 'center' }}>
             <th>ID</th>
             <th>Nome</th>
+            <th>Imagem</th>
             <th colSpan={2}>Opções</th>
           </tr>
         </thead>
@@ -58,6 +69,7 @@ const Pokedex: React.FC = () => {
           <tr>
             <td colSpan={4}>
               <button
+                onClick={handlePreviousButtonClick}
                 type="button"
                 className="btn btn-secondary"
                 style={{ margin: 20 }}
@@ -65,6 +77,7 @@ const Pokedex: React.FC = () => {
                 Anterior
               </button>
               <button
+                onClick={handleNextButtonClick}
                 type="button"
                 className="btn btn-secondary"
                 style={{ margin: 20 }}
