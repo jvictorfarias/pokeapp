@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,21 +7,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Header: React.FC = () => (
   <Container className="container">
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <span className="navbar-brand">Pokedex</span>
+      <span className="navbar-brand">Pokemon App</span>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li>
-            <span className="nav-link">Home</span>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
           </li>
           <li>
-            <span className="nav-link">Pokedéx</span>
+            <Link to="/pokedex" className="nav-link">
+              Pokedéx
+            </Link>
           </li>
           <li>
-            <span className="nav-link">PokeBall</span>
+            <Link to="/pokeball" className="nav-link">
+              PokeBall
+            </Link>
           </li>
           <li>
-            <span className="nav-link">PokeArena</span>
+            <Link to="/pokearena" className="nav-link">
+              PokeArena
+            </Link>
           </li>
         </ul>
       </div>
