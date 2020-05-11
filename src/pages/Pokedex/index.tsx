@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { Container } from './styles';
+import { Container, ButtonContainer } from './styles';
 import Header from '../../components/Header';
 
 import api from '../../services/api';
@@ -29,6 +29,7 @@ const Pokedex: React.FC = () => {
         setPokemons([...data.results]);
         setCount(data.count);
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.log(err);
       }
     }
@@ -68,22 +69,24 @@ const Pokedex: React.FC = () => {
         <tfoot>
           <tr>
             <td colSpan={4}>
-              <button
-                onClick={handlePreviousButtonClick}
-                type="button"
-                className="btn btn-secondary"
-                style={{ margin: 20 }}
-              >
-                Anterior
-              </button>
-              <button
-                onClick={handleNextButtonClick}
-                type="button"
-                className="btn btn-secondary"
-                style={{ margin: 20 }}
-              >
-                Próximo
-              </button>
+              <ButtonContainer>
+                <button
+                  onClick={handlePreviousButtonClick}
+                  type="button"
+                  className="btn btn-secondary"
+                  style={{ margin: 20 }}
+                >
+                  Anterior
+                </button>
+                <button
+                  onClick={handleNextButtonClick}
+                  type="button"
+                  className="btn btn-secondary"
+                  style={{ margin: 20 }}
+                >
+                  Próximo
+                </button>
+              </ButtonContainer>
             </td>
           </tr>
         </tfoot>
