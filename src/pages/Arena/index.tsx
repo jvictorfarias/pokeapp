@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import PokeArenaTableRow from '../../components/PokeArenaTableRow';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
 interface Pokemon {
   id: string;
@@ -36,15 +36,7 @@ const Arena: React.FC = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        marginTop: 10,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-      }}
-    >
+    <Container>
       <h3>Batalha Pokémon</h3>
       <div
         className="container"
@@ -75,7 +67,7 @@ const Arena: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 export default Arena;
