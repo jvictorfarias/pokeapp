@@ -69,23 +69,11 @@ $ git clone https://github.com/jvictorfarias/pokeapp.git
 $ cd pokeapp
 $ yarn
 ```
-#### Iniciando a API
-```sh
-$ cd api
-$ yarn && yarn typeorm migration:run
-```
-
 #### Iniciando o Frontend
 ```sh
 $ cd web
 $ yarn && yarn start
 ```
-#### Iniciando o Mobile(Android)
-```sh
-$ cd mobile
-$ yarn && yarn android && yarn start
-```
-
 ### :memo: Licença
 
 Este projeto é desenvolvido sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para saber mais detalhes.
