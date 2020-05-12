@@ -23,7 +23,7 @@ e usuários poderão marcar agendamentos com estes provedores.
 ## :fire: Pŕevia da Aplicação
 
 <div align="center">
-<img src="../pokeapp/.github/img.png" alt="preview"/>
+<img src="./.github/img.png" alt="preview"/>
 </div>
 
 ### :rocket: Tecnologias Usadas
