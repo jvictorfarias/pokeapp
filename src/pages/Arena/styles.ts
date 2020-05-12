@@ -6,4 +6,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  h3 {
+    margin-top: 20px;
+  }
 `;

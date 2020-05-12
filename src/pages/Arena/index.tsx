@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PokeArenaTableRow from '../../components/PokeArenaTableRow';
 
 import { Container } from './styles';
+import Header from '../../components/Header';
 
 interface Pokemon {
   id: string;
@@ -37,6 +38,7 @@ const Arena: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <h3>Batalha Pokémon</h3>
       <div
         className="container"
