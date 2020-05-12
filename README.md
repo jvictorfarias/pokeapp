@@ -37,7 +37,9 @@ O projeto foi feito com as seguintes tecnologias:
 {...}
 
 ## :hammer: Deploy da Aplicação
-{...}
+
+
+[***Netlify***](https://pokeapp-wtisc.netlify.app)
 
 
 ## :thinking: Como Contribuir?
