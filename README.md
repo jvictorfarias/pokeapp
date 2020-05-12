@@ -67,11 +67,9 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 ```sh
 $ git clone https://github.com/jvictorfarias/pokeapp.git
 $ cd pokeapp
-$ yarn
 ```
-#### Iniciando o Frontend
+#### Iniciando o projeto
 ```sh
-$ cd web
 $ yarn && yarn start
 ```
 ### :memo: Licença
