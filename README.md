@@ -30,12 +30,10 @@ e usuários poderão marcar agendamentos com estes provedores.
 
 O projeto foi feito com as seguintes tecnologias:
 
-- [NodeJS](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [ReactJS](https://pt-br.reactjs.org/)
-- [ExpressJS](https://expressjs.com/pt-br/)
-- [JWT](https://jwt.io/)
-- [Yup](https://github.com/jquense/yup)
 - [Styled-Components](https://styled-components.com/)
+- [PokeApi](https://pokeapi.co/)
 {...}
 
 ## :hammer: Deploy da Aplicação

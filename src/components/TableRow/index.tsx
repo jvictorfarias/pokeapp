@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-alert */
+import React, { useCallback } from 'react';
 
 import { Container } from './styles';
 
@@ -11,34 +12,79 @@ interface TableProps {
   pokemon: InterfacePokemon;
 }
 
-const TableRow: React.FC<TableProps> = ({ pokemon, ...rest }: TableProps) => (
-  <Container {...rest}>
-    <td>
-      <strong>{pokemon.url.split('/').reverse().splice(1, 1)}</strong>
-    </td>
+interface Pokemon {
+  id: string;
+  name: string;
+}
 
-    <td>
-      <span>{pokemon.name}</span>
-    </td>
+const TableRow: React.FC<TableProps> = ({ pokemon, ...rest }: TableProps) => {
+  const idPoke = pokemon.url.split('/').reverse().splice(1, 1).toString();
 
-    <td>
-      <img
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url
-          .split('/')
-          .reverse()
-          .splice(1, 1)}.png`}
-        alt={pokemon.name}
-      />
-    </td>
-    <td>
-      <button type="button" className="btn btn-primary" style={{ margin: 20 }}>
-        Informações
-      </button>
-      <button type="button" className="btn btn-danger" style={{ margin: 20 }}>
-        Capturar
-      </button>
-    </td>
-  </Container>
-);
+  const capturar = useCallback((id: string, name: string) => {
+    const pokeitems = sessionStorage.getItem('@pokeball');
+
+    let pokeball: Pokemon[];
+
+    if (pokeitems !== null) {
+      pokeball = JSON.parse(pokeitems);
+    } else {
+      pokeball = [] as Pokemon[];
+    }
+
+    if (pokeball?.length >= 4) {
+      alert('Pokebola cheia!');
+      return;
+    }
+
+    const pokemonExists = pokeball.find((poke) => poke.id === id);
+
+    if (pokemonExists) {
+      alert('Pokemon já existe');
+    }
+
+    pokeball.push({ id, name });
+
+    sessionStorage.setItem('@pokeball', JSON.stringify(pokeball));
+  }, []);
+
+  return (
+    <Container {...rest}>
+      <td>
+        <strong>{pokemon.url.split('/').reverse().splice(1, 1)}</strong>
+      </td>
+
+      <td>
+        <span>{pokemon.name}</span>
+      </td>
+
+      <td>
+        <img
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url
+            .split('/')
+            .reverse()
+            .splice(1, 1)}.png`}
+          alt={pokemon.name}
+        />
+      </td>
+      <td>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ margin: 20 }}
+        >
+          Informações
+        </button>
+        <button
+          onClick={() => capturar(idPoke, pokemon.name)}
+          type="button"
+          className="btn btn-danger"
+          style={{ margin: 20 }}
+        >
+          Capturar
+        </button>
+      </td>
+    </Container>
+  );
+};
 
 export default TableRow;
