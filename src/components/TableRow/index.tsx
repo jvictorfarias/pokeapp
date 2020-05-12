@@ -40,6 +40,7 @@ const TableRow: React.FC<TableProps> = ({ pokemon, ...rest }: TableProps) => {
 
     if (pokemonExists) {
       alert('Pokemon já existe');
+      return;
     }
 
     pokeball.push({ id, name });
