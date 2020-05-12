@@ -10,15 +10,16 @@
   <a href="#rocket-tecnologias-usadas"> :rocket: Tecnologias Usadas</a> |
   <a href="#hammer-deploy-da-aplicação"> :hammer: Deploy da Aplicação</a> |
   <a href="#thinking-como-contribuir?"> :thinking: Como Contribuir?</a> |
-  <a href="#zap-executando-o-projeto"> :zap: Executando o Projeto </a> |
+  <a href="#zap-executando-o-projeto"> :zap: Executando o Projeto </a>
 </p>
 
 </div>
 
 ## :rocket: O projeto
 
-Aplicação para agendar e gerenciar serviços de beleza, onde prestadores de serviços podem se cadastrar,
-e usuários poderão marcar agendamentos com estes provedores.
+Aplicação desenvolvida no minicurso de React do WTISC 2020, e tem como objetivo
+trazer aos fãs de pokémon, uma aplicação para visualizar seus pokemóns favoritos
+e batalhar!
 
 ## :fire: Pŕevia da Aplicação
 
