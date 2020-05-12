@@ -5,15 +5,6 @@ import Header from '../../components/Header';
 import { Container, Content } from './styles';
 
 const Home: React.FC = () => {
-  const [pokeball, setPokeball] = useState(() => {
-    const pokeitems = sessionStorage.getItem('@pokeball');
-
-    if (!pokeitems) {
-      return [];
-    }
-
-    return JSON.parse(pokeitems);
-  });
   return (
     <Container>
       <Header />

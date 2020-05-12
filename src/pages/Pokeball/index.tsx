@@ -11,14 +11,14 @@ interface Pokemon {
 }
 
 const Pokeball: React.FC = () => {
-  const [pokeitems, setPokeitems] = useState<Pokemon[]>(() => {
-    const pokeStorage = sessionStorage.getItem('@pokeball');
+  const [pokeball, setPokeball] = useState<Pokemon[]>(() => {
+    const pokemon = sessionStorage.getItem('@pokeball');
 
-    if (!pokeStorage) {
+    if (!pokemon) {
       return [] as Pokemon[];
     }
 
-    return JSON.parse(pokeStorage);
+    return JSON.parse(pokemon);
   });
 
   return (
@@ -37,8 +37,8 @@ const Pokeball: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {pokeitems ? (
-            pokeitems.map((pokemon) => {
+          {pokeball ? (
+            pokeball.map((pokemon) => {
               return (
                 <PokeballTableRow
                   name={pokemon.name}
