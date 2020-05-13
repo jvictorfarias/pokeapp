@@ -35,6 +35,7 @@ O projeto foi feito com as seguintes tecnologias:
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Styled-Components](https://styled-components.com/)
 - [PokeApi](https://pokeapi.co/)
+- [Bootstrap](https://getbootstrap.com/)
 {...}
 
 ## :hammer: Deploy da Aplicação
