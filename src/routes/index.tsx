@@ -10,6 +10,7 @@ const Routes: React.FC = () => (
   <Router>
     <Switch>
       <Route path="/" exact component={Pokedex} />
+      <Route path="/pokedex" component={Pokedex} />
       <Route path="/pokeball" component={Pokeball} />
       <Route path="/pokearena" component={Arena} />
       <Route path="/" component={() => <h1>404 not found</h1>} />
